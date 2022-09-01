@@ -1,30 +1,56 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.appContainer}>
       <View>
-        <Text style={styles.mainText}>Another piece of text</Text>
+        <Text style={styles.heading}>Goals</Text>
       </View>
-      <Text style={{ margin: 16, padding: 16, borderWidth: 1, borderColor: 'orange' }}>
-        Hello World!
-      </Text>
-      <Button title='click' />
+      <View style={styles.inputContainer}>
+        <TextInput placeholder='Your goals' style={styles.textInput} />
+        <Button title='Add Goal' />
+      </View>
+      <View style={styles.goalsContainer}>
+        <Text>Your Goals</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    paddingTop: 60,
+    paddingHorizontal: 40,
   },
-  mainText: {
-    margin: 16,
-    padding: 16,
-    borderWidth: 3,
-    borderColor: 'purple'
-  }
+  heading: {
+    fontSize: 32,
+    textTransform: 'uppercase',
+    textAlign: 'center',
+    marginBottom: 20,
+    letterSpacing: 1,
+    color: 'purple',
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'orange',
+    marginBottom: 20,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    width: '70%',
+    marginRight: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+  },
+  goalsContainer: {
+    flex: 5,
+    borderWidth: 1,
+    borderColor: 'pink',
+  },
 });
