@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [goalInput, setGoalInput] = useState('');
+  const [goals, setGoals] = useState([]);
 
   const goalInputHandler = (inputText) => {
     setGoalInput(inputText);
@@ -10,6 +11,7 @@ export default function App() {
 
   const addGoalHandler = () => {
     console.log('goalInput:', goalInput);
+    setGoals((currentGoals) => [...currentGoals, goalInput]); // best practice to update state
   };
 
   return (
@@ -26,7 +28,9 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <Text>Your Goals</Text>
+        {goals.map((goal, _id) => (
+          <Text key={_id}>{goal}</Text>
+        ))}
       </View>
     </View>
   );
