@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TextInput, View, Button, ScrollView, FlatList } from 'react-native';
 import { useState } from 'react';
+import Goals from './components/Goals';
 
 export default function App() {
   const [goalInput, setGoalInput] = useState('');
-  // const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
-  const [goals, setGoals] = useState([]);
+  const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
 
   const goalInputHandler = (inputText) => {
     setGoalInput(inputText);
@@ -33,16 +33,7 @@ export default function App() {
         />
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
-      <View style={styles.goalsContainer}>
-        <FlatList
-          data={goals}
-          renderItem={(itemData) => {
-            return <Text style={styles.goalItem}>{itemData.item.text}</Text>;
-          }}
-          alwaysBounceVertical={false}
-          fadingEdgeLength={50}
-        />
-      </View>
+      <Goals goals={goals} />
     </View>
   );
 }
@@ -77,20 +68,5 @@ const styles = StyleSheet.create({
     marginRight: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
-  },
-  goalsContainer: {
-    flex: 5,
-    paddingTop: 10,
-  },
-  goalItem: {
-    borderWidth: 1,
-    borderColor: 'purple',
-    backgroundColor: '#f5e1fd',
-    borderRadius: 8,
-    flexWrap: 'wrap',
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    marginVertical: 5,
-    marginHorizontal: 7,
   },
 });
