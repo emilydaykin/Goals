@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View, Button, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button } from 'react-native';
 import { useState } from 'react';
 import Goals from './components/Goals';
 
