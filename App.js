@@ -4,7 +4,10 @@ import Goals from './components/Goals';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
-  const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
+  const [goals, setGoals] = useState([
+    { text: 'Do the dishes', key: 0 },
+    { text: 'Go swimming', key: 1 },
+  ]);
 
   const deleteGoalHandler = (id) => {
     console.log('delete goal...');
