@@ -1,7 +1,7 @@
 import { StyleSheet, View, TextInput, Button, Modal } from 'react-native';
 import { useState } from 'react';
 
-const GoalInput = ({ setGoals, modalIsVisible }) => {
+const GoalInput = ({ setGoals, modalIsVisible, onCancel }) => {
   const [goalInput, setGoalInput] = useState('');
 
   const goalInputHandler = (inputText) => {
@@ -16,6 +16,7 @@ const GoalInput = ({ setGoals, modalIsVisible }) => {
         { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
       ]); // best practice to update state
       setGoalInput('');
+      onCancel();
     }
   };
 
@@ -33,7 +34,7 @@ const GoalInput = ({ setGoals, modalIsVisible }) => {
             <Button title='Add Goal' onPress={addGoalHandler} />
           </View>
           <View style={styles.button}>
-            <Button title='Cancel' />
+            <Button title='Cancel' onPress={onCancel} />
           </View>
         </View>
       </View>
