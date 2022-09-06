@@ -14,6 +14,10 @@ export default function App() {
     setModalIsVisible(true);
   };
 
+  const hideAddGoal = () => {
+    setModalIsVisible(false);
+  };
+
   const deleteGoalHandler = (id) => {
     console.log('delete goal...');
     setGoals((currentGoals) => {
@@ -27,7 +31,7 @@ export default function App() {
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
-      <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} />
+      <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} onCancel={hideAddGoal} />
       <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
     </View>
   );
