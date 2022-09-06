@@ -15,8 +15,7 @@ export default function App() {
     if (goalInput != '') {
       setGoals((currentGoals) => [
         ...currentGoals,
-        // { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
-        { text: goalInput, id: Math.random().toString() },
+        { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
       ]); // best practice to update state
     }
   };
@@ -39,9 +38,6 @@ export default function App() {
           data={goals}
           renderItem={(itemData) => {
             return <Text style={styles.goalItem}>{itemData.item.text}</Text>;
-          }}
-          keyExtractor={(item, index) => {
-            return item.id;
           }}
           alwaysBounceVertical={false}
           fadingEdgeLength={50}
