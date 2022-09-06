@@ -11,7 +11,9 @@ export default function App() {
 
   const addGoalHandler = () => {
     console.log('goalInput:', goalInput);
-    setGoals((currentGoals) => [...currentGoals, goalInput]); // best practice to update state
+    if (goalInput != '') {
+      setGoals((currentGoals) => [...currentGoals, goalInput]); // best practice to update state
+    }
   };
 
   return (
