@@ -1,9 +1,10 @@
-import { StyleSheet, Text, TextInput, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, ScrollView, FlatList } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
   const [goalInput, setGoalInput] = useState('');
-  const [goals, setGoals] = useState(['Do the dishes']);
+  // const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
+  const [goals, setGoals] = useState([]);
 
   const goalInputHandler = (inputText) => {
     setGoalInput(inputText);
@@ -12,7 +13,11 @@ export default function App() {
   const addGoalHandler = () => {
     console.log('goalInput:', goalInput);
     if (goalInput != '') {
-      setGoals((currentGoals) => [...currentGoals, goalInput]); // best practice to update state
+      setGoals((currentGoals) => [
+        ...currentGoals,
+        // { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
+        { text: goalInput, id: Math.random().toString() },
+      ]); // best practice to update state
     }
   };
 
@@ -30,13 +35,17 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView alwaysBounceVertical={false} fadingEdgeLength={50}>
-          {goals.map((goal, _id) => (
-            <Text style={styles.goalItem} key={_id}>
-              {goal}
-            </Text>
-          ))}
-        </ScrollView>
+        <FlatList
+          data={goals}
+          renderItem={(itemData) => {
+            return <Text style={styles.goalItem}>{itemData.item.text}</Text>;
+          }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          alwaysBounceVertical={false}
+          fadingEdgeLength={50}
+        />
       </View>
     </View>
   );
@@ -61,11 +70,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // borderWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#cccccc',
     marginBottom: 20,
-    // backgroundColor: 'pink',
   },
   textInput: {
     borderWidth: 1,
@@ -77,8 +84,6 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 5,
-    // borderWidth: 1,
-    // borderColor: 'pink',
     paddingTop: 10,
   },
   goalItem: {
