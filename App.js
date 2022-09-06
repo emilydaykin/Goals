@@ -6,13 +6,20 @@ import GoalInput from './components/GoalInput';
 export default function App() {
   const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
 
+  const deleteGoalHandler = (id) => {
+    console.log('delete goal...');
+    setGoals((currentGoals) => {
+      return currentGoals.filter((goal) => goal.key !== id);
+    });
+  };
+
   return (
     <View style={styles.appContainer}>
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
       <GoalInput setGoals={setGoals} />
-      <Goals goals={goals} />
+      <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
     </View>
   );
 }

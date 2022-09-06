@@ -1,12 +1,16 @@
-import { StyleSheet, View, FlatList, Text } from 'react-native';
+import { StyleSheet, View, FlatList, Text, Pressable } from 'react-native';
 
-const Goals = ({ goals }) => {
+const Goals = ({ goals, onDeleteGoal }) => {
   return (
     <View style={styles.goalsContainer}>
       <FlatList
         data={goals}
         renderItem={(itemData) => {
-          return <Text style={styles.goalItem}>{itemData.item.text}</Text>;
+          return (
+            <Pressable onPress={onDeleteGoal.bind(this, itemData.item.key)}>
+              <Text style={styles.goalItem}>{itemData.item.text}</Text>
+            </Pressable>
+          );
         }}
         alwaysBounceVertical={false}
         fadingEdgeLength={50}
