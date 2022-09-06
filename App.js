@@ -30,7 +30,7 @@ export default function App() {
         <Button title='Add Goal' onPress={addGoalHandler} />
       </View>
       <View style={styles.goalsContainer}>
-        <ScrollView alwaysBounceVertical={false}>
+        <ScrollView alwaysBounceVertical={false} fadingEdgeLength={50}>
           {goals.map((goal, _id) => (
             <Text style={styles.goalItem} key={_id}>
               {goal}
