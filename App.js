@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [goalInput, setGoalInput] = useState('');
-  const [goals, setGoals] = useState([]);
+  const [goals, setGoals] = useState(['Do the dishes']);
 
   const goalInputHandler = (inputText) => {
     setGoalInput(inputText);
@@ -29,7 +29,9 @@ export default function App() {
       </View>
       <View style={styles.goalsContainer}>
         {goals.map((goal, _id) => (
-          <Text key={_id}>{goal}</Text>
+          <Text style={styles.goalItem} key={_id}>
+            {goal}
+          </Text>
         ))}
       </View>
     </View>
@@ -55,13 +57,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'orange',
+    // borderWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: '#cccccc',
     marginBottom: 20,
+    // backgroundColor: 'pink',
   },
   textInput: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#cccccc',
     width: '70%',
     marginRight: 8,
     paddingVertical: 8,
@@ -69,7 +73,19 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 5,
+    // borderWidth: 1,
+    // borderColor: 'pink',
+    paddingTop: 10,
+  },
+  goalItem: {
     borderWidth: 1,
-    borderColor: 'pink',
+    borderColor: 'purple',
+    backgroundColor: '#f5e1fd',
+    borderRadius: 8,
+    flexWrap: 'wrap',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginVertical: 5,
+    marginHorizontal: 7,
   },
 });
