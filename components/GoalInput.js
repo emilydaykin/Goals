@@ -52,13 +52,8 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
-    // flexDirection: 'row',
-    // justifyContent: 'space-between',
     justifyContent: 'center',
     alignItems: 'center',
-    // borderBottomWidth: 1,
-    // borderColor: '#cccccc',
-    // marginBottom: 20,
     backgroundColor: '#2f022d',
   },
   textInput: {
@@ -78,9 +73,6 @@ const styles = StyleSheet.create({
     margin: 10,
     width: '30%',
     color: '#ffffff',
-    // borderWidth: 1,
-    // borderColor: 'purple',
-    // borderRadius: 15,
   },
 });
 
