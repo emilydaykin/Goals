@@ -15,6 +15,7 @@ const GoalInput = ({ setGoals }) => {
         ...currentGoals,
         { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
       ]); // best practice to update state
+      setGoalInput('');
     }
   };
 
@@ -24,6 +25,7 @@ const GoalInput = ({ setGoals }) => {
         placeholder='Your goals'
         style={styles.textInput}
         onChangeText={goalInputHandler}
+        value={goalInput}
       />
       <Button title='Add Goal' onPress={addGoalHandler} />
     </View>
