@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, Button, Modal } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Modal, Image } from 'react-native';
 import { useState } from 'react';
 
 const GoalInput = ({ setGoals, modalIsVisible, onCancel }) => {
@@ -23,6 +23,7 @@ const GoalInput = ({ setGoals, modalIsVisible, onCancel }) => {
   return (
     <Modal visible={modalIsVisible} animationType='slide'>
       <View style={styles.inputContainer}>
+        <Image style={styles.image} source={require('../assets/target.png')} />
         <TextInput
           placeholder='Your goals'
           style={styles.textInput}
@@ -43,23 +44,32 @@ const GoalInput = ({ setGoals, modalIsVisible, onCancel }) => {
 };
 
 const styles = StyleSheet.create({
+  image: {
+    width: 200,
+    height: 200,
+    marginTop: -40,
+    marginBottom: 25,
+  },
   inputContainer: {
     flex: 1,
     // flexDirection: 'row',
     // justifyContent: 'space-between',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderColor: '#cccccc',
-    marginBottom: 20,
+    // borderBottomWidth: 1,
+    // borderColor: '#cccccc',
+    // marginBottom: 20,
+    backgroundColor: '#2f022d',
   },
   textInput: {
-    borderWidth: 1,
+    borderWidth: 3,
+    borderRadius: 10,
     borderColor: '#cccccc',
     width: '70%',
     marginRight: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
+    color: '#ffffff',
   },
   buttonContainer: {
     flexDirection: 'row',
@@ -67,6 +77,7 @@ const styles = StyleSheet.create({
   button: {
     margin: 10,
     width: '30%',
+    color: '#ffffff',
     // borderWidth: 1,
     // borderColor: 'purple',
     // borderRadius: 15,
