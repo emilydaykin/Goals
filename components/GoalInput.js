@@ -1,6 +1,23 @@
 import { StyleSheet, View, TextInput, Button } from 'react-native';
+import { useState } from 'react';
 
-const GoalInput = ({ goalInputHandler, addGoalHandler }) => {
+const GoalInput = ({ setGoals }) => {
+  const [goalInput, setGoalInput] = useState('');
+
+  const goalInputHandler = (inputText) => {
+    setGoalInput(inputText);
+  };
+
+  const addGoalHandler = () => {
+    console.log('goalInput:', goalInput);
+    if (goalInput != '') {
+      setGoals((currentGoals) => [
+        ...currentGoals,
+        { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
+      ]); // best practice to update state
+    }
+  };
+
   return (
     <View style={styles.inputContainer}>
       <TextInput

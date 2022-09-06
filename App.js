@@ -4,29 +4,14 @@ import Goals from './components/Goals';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
-  const [goalInput, setGoalInput] = useState('');
   const [goals, setGoals] = useState([{ text: 'Do the dishes', key: 0 }]);
-
-  const goalInputHandler = (inputText) => {
-    setGoalInput(inputText);
-  };
-
-  const addGoalHandler = () => {
-    console.log('goalInput:', goalInput);
-    if (goalInput != '') {
-      setGoals((currentGoals) => [
-        ...currentGoals,
-        { text: goalInput, key: Math.random().toString() }, // FlatList will automatically look for this 'key' property
-      ]); // best practice to update state
-    }
-  };
 
   return (
     <View style={styles.appContainer}>
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
-      <GoalInput goalInputHandler={goalInputHandler} addGoalHandler={addGoalHandler} />
+      <GoalInput setGoals={setGoals} />
       <Goals goals={goals} />
     </View>
   );
