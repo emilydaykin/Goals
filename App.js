@@ -27,10 +27,10 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title='Add New Goal' color='purple' onPress={startAddGoalHandler} />
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
+      <Button title='Add New Goal' color='purple' onPress={startAddGoalHandler} />
       <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} onCancel={hideAddGoal} />
       <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
     </View>
