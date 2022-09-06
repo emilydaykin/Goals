@@ -1,13 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { useState } from 'react';
 import Goals from './components/Goals';
 import GoalInput from './components/GoalInput';
 
 export default function App() {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   const [goals, setGoals] = useState([
     { text: 'Do the dishes', key: 0 },
     { text: 'Go swimming', key: 1 },
   ]);
+
+  const startAddGoalHandler = () => {
+    setModalIsVisible(true);
+  };
 
   const deleteGoalHandler = (id) => {
     console.log('delete goal...');
@@ -18,10 +23,11 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
+      <Button title='Add New Goal' color='purple' onPress={startAddGoalHandler} />
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
-      <GoalInput setGoals={setGoals} />
+      <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} />
       <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
     </View>
   );
