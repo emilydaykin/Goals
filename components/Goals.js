@@ -7,9 +7,14 @@ const Goals = ({ goals, onDeleteGoal }) => {
         data={goals}
         renderItem={(itemData) => {
           return (
-            <Pressable onPress={onDeleteGoal.bind(this, itemData.item.key)}>
-              <Text style={styles.goalItem}>{itemData.item.text}</Text>
-            </Pressable>
+            <View style={styles.goalItem}>
+              <Pressable
+                android_ripple={{ color: '#8d38fc' }}
+                onPress={onDeleteGoal.bind(this, itemData.item.key)}
+              >
+                <Text style={styles.goalText}>{itemData.item.text}</Text>
+              </Pressable>
+            </View>
           );
         }}
         alwaysBounceVertical={false}
@@ -29,11 +34,15 @@ const styles = StyleSheet.create({
     borderColor: 'purple',
     backgroundColor: '#f5e1fd',
     borderRadius: 8,
-    flexWrap: 'wrap',
-    paddingVertical: 10,
-    paddingHorizontal: 15,
     marginVertical: 5,
     marginHorizontal: 7,
+  },
+  goalText: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    display: 'flex',
+    width: '100%',
+    textAlign: 'center',
   },
 });
 
