@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   goalItem: {
     borderWidth: 1,
-    borderColor: 'purple',
+    borderColor: '#2f022d',
     backgroundColor: '#f5e1fd',
     borderRadius: 8,
     marginVertical: 5,
