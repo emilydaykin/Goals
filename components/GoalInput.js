@@ -25,17 +25,18 @@ const GoalInput = ({ setGoals, modalIsVisible, onCancel }) => {
       <View style={styles.inputContainer}>
         <Image style={styles.image} source={require('../assets/target.png')} />
         <TextInput
-          placeholder='Your goals'
+          placeholder='Enter a goal...'
           style={styles.textInput}
           onChangeText={goalInputHandler}
           value={goalInput}
+          placeholderTextColor='#ffffff'
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title='Add Goal' onPress={addGoalHandler} />
+            <Button title='Add Goal' onPress={addGoalHandler} color='#e28bff' />
           </View>
           <View style={styles.button}>
-            <Button title='Cancel' onPress={onCancel} />
+            <Button title='Cancel' onPress={onCancel} color='#ff5555' />
           </View>
         </View>
       </View>
@@ -62,9 +63,10 @@ const styles = StyleSheet.create({
     borderColor: '#cccccc',
     width: '70%',
     marginRight: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 18,
     color: '#ffffff',
+    // placeholderTextColor: '#ffffff',  // has to go inline above
   },
   buttonContainer: {
     flexDirection: 'row',
