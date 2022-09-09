@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import Goals from './components/Goals';
 import GoalInput from './components/GoalInput';
 
@@ -26,14 +27,18 @@ export default function App() {
   };
 
   return (
-    <View style={styles.appContainer}>
-      <View>
-        <Text style={styles.heading}>Goals</Text>
+    <>
+      {/* status bar is the time, signal etc of the smartphone!! */}
+      <StatusBar style='light' />
+      <View style={styles.appContainer}>
+        <View>
+          <Text style={styles.heading}>Goals</Text>
+        </View>
+        <Button title='Add New Goal' color='#c66eef' onPress={startAddGoalHandler} />
+        <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} onCancel={hideAddGoal} />
+        <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
       </View>
-      <Button title='Add New Goal' color='#c66eef' onPress={startAddGoalHandler} />
-      <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} onCancel={hideAddGoal} />
-      <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
-    </View>
+    </>
   );
 }
 
