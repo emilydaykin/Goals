@@ -30,7 +30,7 @@ export default function App() {
       <View>
         <Text style={styles.heading}>Goals</Text>
       </View>
-      <Button title='Add New Goal' color='purple' onPress={startAddGoalHandler} />
+      <Button title='Add New Goal' color='#c66eef' onPress={startAddGoalHandler} />
       <GoalInput setGoals={setGoals} modalIsVisible={modalIsVisible} onCancel={hideAddGoal} />
       <Goals goals={goals} onDeleteGoal={deleteGoalHandler} />
     </View>
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
     letterSpacing: 1,
-    color: 'purple',
+    color: '#f7d9ff',
   },
 });
