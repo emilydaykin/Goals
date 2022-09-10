@@ -1,5 +1,5 @@
 # Goals
-My first ever mobile application! Goals is built with React Native, which supports iOS, Android! Users can add and remove goals, and see and scroll their list of added goals.
+My first ever mobile application! Goals is built with React Native, which works on iOS and Android. Users can add and remove goals, and see and scroll their list of added goals.
 
 ## Application Walkthrough:
 #### Input Goal Modal (iOS & Android)
