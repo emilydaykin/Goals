@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Goals from './components/Goals';
@@ -6,10 +6,7 @@ import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [goals, setGoals] = useState([
-    { text: 'Do the dishes', key: 0 },
-    { text: 'Go swimming', key: 1 },
-  ]);
+  const [goals, setGoals] = useState([{ text: 'Learn React Native', key: 0 }]);
 
   const startAddGoalHandler = () => {
     setModalIsVisible(true);
@@ -31,6 +28,9 @@ export default function App() {
       {/* status bar is the time, signal etc of the smartphone!! */}
       <StatusBar style='light' />
       <View style={styles.appContainer}>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={require('./assets/target.png')} />
+        </View>
         <View>
           <Text style={styles.heading}>Goals</Text>
         </View>
@@ -55,5 +55,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     letterSpacing: 1,
     color: '#f7d9ff',
+  },
+  imageContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  image: {
+    width: 75,
+    height: 75,
   },
 });
