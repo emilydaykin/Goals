@@ -2,6 +2,30 @@
 My first ever mobile application! Goals is built with React Native, which supports iOS, Android! Users can add and remove goals, and see and scroll their list of added goals.
 
 ## Application Walkthrough:
+#### Input Goal Modal (iOS & Android)
+<p align="center">
+  <img src="assets/readme/add_goal_modal_iOS.png" width="32.5%"  />
+  &ensp;
+  <img src="assets/readme/add_goal_modal_android.png" width="30%"  />
+</p>
+
+#### All Goals Display (iOS & Android)
+- Observe Android's `fadingEdgeLength` (list top) to indicate more scroll elements
+<p align="center">
+  <img src="assets/readme/display_goals_iOS.png" width="32.5%"  />
+  &ensp;
+  <img src="assets/readme/display_goals_android.png" width="30%"  />
+</p>
+
+#### Deleting and Adding Goals (iOS & Android)
+- Observe the `android_ripple` effect upon press/delete
+<p align="center">
+  <img src="assets/readme/adding_deleting_iOS.gif" width="33%"  />
+  &emsp;
+  <img src="assets/readme/adding_deleting_android.gif" width="30%"  />
+</p>
+
+
 
 ## Installation:
 This app is not published to the App Store or Google Play yet. To run locally:
