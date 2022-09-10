@@ -6,7 +6,22 @@ import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [goals, setGoals] = useState([{ text: 'Learn React Native', key: 0 }]);
+  const [goals, setGoals] = useState([
+    { text: 'Learn React Native', key: 0 },
+    { text: 'Go swimming for 1 hour', key: 1 },
+    { text: 'Eat fruits and veggies', key: 2 },
+    { text: 'Hit 10,000 steps', key: 3 },
+    { text: 'Research pros and cons of Flutter', key: 4 },
+    { text: 'Complete 5 hours of focused work', key: 5 },
+    { text: 'Finish NBA painting', key: 6 },
+    { text: 'Climb Mount Everest by next year', key: 7 },
+    { text: 'Get pets back into shape', key: 8 },
+    { text: 'Start sharing work online', key: 9 },
+    { text: 'Backpacking around South America', key: 10 },
+    { text: 'Speak German fluently by next year', key: 11 },
+    { text: 'Donate to a charity', key: 12 },
+    { text: 'Book singing lessons', key: 13 },
+  ]);
 
   const startAddGoalHandler = () => {
     setModalIsVisible(true);
